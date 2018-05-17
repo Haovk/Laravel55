@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Log;
 use App\WebConfig;
 use App\Http\Resources\LogResource;
+use App\Http\Resources\WebConfigResource;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,8 +25,13 @@ Route::get('/log', function (Request $request) {
     return Log::find($request->id);
 });
 
-Route::get('webconfig/{id}', function ($id) {
+Route::get('getconfig/{id}', function ($id) {
     return WebConfig::find($id)->Content;
+});
+
+Route::get('getconfig', function (Request $request) {
+    //return new WebConfigResource(WebConfig::find($request->id));
+    return WebConfig::find($request->id)->Content;
 });
 
 Route::get('test', function () {

@@ -14,4 +14,5 @@ Route::group([
     $router->resource('users', UserController::class);
     $router->resource('log', LogController::class);
     $router->resource('userinfo', UserInfoController::class);
+    $router->resource('ViewThreeAwardRecord', ViewThreeAwardRecordController::class);
 });

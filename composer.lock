@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2b927fe21528a5f01ea66b5973805dc",
+    "content-hash": "2904c33f37315d00ed4a6e4779a62f5b",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2685,6 +2685,60 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "yansongda/laravel-pay",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yansongda/laravel-pay.git",
+                "reference": "c2145e3f440292890c02b11a1eee052f0cf69788"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/yansongda/laravel-pay/c2145e3f440292890c02b11a1eee052f0cf69788.zip",
+                "reference": "c2145e3f440292890c02b11a1eee052f0cf69788",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.1",
+                "yansongda/pay": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yansongda\\LaravelPay\\PayServiceProvider"
+                    ],
+                    "aliases": {
+                        "Pay": "Yansongda\\LaravelPay\\Facades\\Pay"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yansongda\\LaravelPay\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yansongda",
+                    "email": "me@yansongda.cn"
+                }
+            ],
+            "description": "专注 Alipay 和 WeChat 的 laravel 支付扩展包",
+            "keywords": [
+                "alipay",
+                "laravel",
+                "package",
+                "pay",
+                "wechat"
+            ],
+            "time": "2017-12-27T01:55:32+00:00"
         },
         {
             "name": "yansongda/pay",

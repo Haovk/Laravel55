@@ -8,12 +8,12 @@ use Yansongda\Pay\Log;
 class PayController extends Controller
 {
     protected $config = [
-        'appid' => 'wxb3fxxxxxxxxxxx', // APP APPID
+        'appid' => 'wx1b397e94b8210b8b', // APP APPID
         'app_id' => 'wxb3fxxxxxxxxxxx', // 公众号 APPID
         'miniapp_id' => 'wxb3fxxxxxxxxxxx', // 小程序 APPID
-        'mch_id' => '14577xxxx',
-        'key' => 'mF2suE9sU6Mk1Cxxxxxxxxxxx',
-        'notify_url' => 'http://yanda.net.cn/notify.php',
+        'mch_id' => '1490907642',
+        'key' => 'd65617d1ac47ad51bce9b09f9e13ac98',
+        'notify_url' => 'http://yanda.net.cn/pay/wechatappnotify',
         'cert_client' => './cert/apiclient_cert.pem', // optional，退款等情况时用到
         'cert_key' => './cert/apiclient_key.pem',// optional，退款等情况时用到
         'log' => [ // optional
@@ -23,16 +23,17 @@ class PayController extends Controller
         'mode' => 'dev', // optional, dev/hk;当为 `hk` 时，为香港 gateway。
     ];
 
-    public function index()
+    public function wechatapp()
     {
         $order = [
             'out_trade_no' => time(),
             'total_fee' => '1', // **单位：分**
             'body' => 'test body - 测试',
-            'openid' => 'onkVf1FjWS5SBIixxxxxxx',
         ];
 
-        $pay = Pay::wechat($this->config)->mp($order);
+        $pay = Pay::wechat($this->config)->app($order);
+
+        return json($pay);
 
         // $pay->appId
         // $pay->timeStamp
@@ -41,7 +42,7 @@ class PayController extends Controller
         // $pay->signType
     }
 
-    public function notify()
+    public function wechatappnotify()
     {
         $pay = Pay::wechat($this->config);
 
@@ -53,6 +54,6 @@ class PayController extends Controller
             // $e->getMessage();
         }
 
-        return $pay->success()->send();// laravel 框架中请直接 `return $pay->success()`
+        return $pay->success();// laravel 框架中请直接 `return $pay->success()`
     }
 }
