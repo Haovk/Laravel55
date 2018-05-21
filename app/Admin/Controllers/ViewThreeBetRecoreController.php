@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\ViewThreeAwardRecord;
+use App\ViewThreeBetRecore;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ViewThreeAwardRecordController extends Controller
+class ViewThreeBetRecoreController extends Controller
 {
     use ModelForm;
 
@@ -71,14 +71,16 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(ViewThreeAwardRecord::class, function (Grid $grid) {
+        return Admin::grid(ViewThreeBetRecore::class, function (Grid $grid) {
 
-            $grid->id('ID');
-            $grid->nick_name('玩家昵称');
-            $grid->session_id('期数');
-            $grid->award_pattern('牌型')->display(
-                function($award_pattern){
-                    switch ($award_pattern) {
+            $grid->id('ID')->sortable();
+
+            $grid->session_id('期数')->sortable();
+            $grid->nick_name('用户昵称');
+            $grid->user_id('用户编号');            
+            $grid->bet_pattern('押注牌型')->display(
+                function($bet_pattern){
+                    switch ($bet_pattern) {
                         case 1:return '单牌';break;
                         case 2:return '对子';break;
                         case 3:return '顺子';break;
@@ -88,14 +90,13 @@ class ViewThreeAwardRecordController extends Controller
                         case 7:return '特殊';break;
                         case 8:return 'AAA';break;
                     }
-                })->label(); 
-            $grid->award_gold('中奖金额');
-            $grid->award_date('中奖时间')->sortable();
-
+                })->label();   
+            $grid->bet_gold('押注金额');         
+            $grid->bet_date('押注时间')->sortable();
+            
             $grid->disableActions();
             $grid->disableCreation();
             $grid->tools->disableBatchActions();
-
         });
     }
 
@@ -106,7 +107,7 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function form()
     {
-        return Admin::form(ViewThreeAwardRecord::class, function (Form $form) {
+        return Admin::form(ViewThreeBetRecore::class, function (Form $form) {
 
             $form->display('id', 'ID');
 

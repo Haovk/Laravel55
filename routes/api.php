@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Log;
-use App\WebConfig;
+use App\Models\Log;
+use App\Models\WebConfig;
 use App\Http\Resources\LogResource;
 use App\Http\Resources\WebConfigResource;
 /*

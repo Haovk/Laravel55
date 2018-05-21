@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\ViewThreeAwardRecord;
+use App\ThreeTotalRecord;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ViewThreeAwardRecordController extends Controller
+class ThreeTotalRecordController extends Controller
 {
     use ModelForm;
 
@@ -71,12 +71,10 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(ViewThreeAwardRecord::class, function (Grid $grid) {
+        return Admin::grid(ThreeTotalRecord::class, function (Grid $grid) {
 
-            $grid->id('ID');
-            $grid->nick_name('玩家昵称');
-            $grid->session_id('期数');
-            $grid->award_pattern('牌型')->display(
+            $grid->session_id('期数')->sortable();
+            $grid->award_pattern('开奖牌型')->display(
                 function($award_pattern){
                     switch ($award_pattern) {
                         case 1:return '单牌';break;
@@ -89,13 +87,15 @@ class ViewThreeAwardRecordController extends Controller
                         case 8:return 'AAA';break;
                     }
                 })->label(); 
-            $grid->award_gold('中奖金额');
-            $grid->award_date('中奖时间')->sortable();
+            $grid->totol_bet_num('押注总人数');
+            $grid->totol_bet_gold('押注总金额');
+            $grid->totol_award_num('中奖总人数');
+            $grid->totol_award_gold('中奖总金额');
+            $grid->award_date('开奖日期');
 
             $grid->disableActions();
             $grid->disableCreation();
             $grid->tools->disableBatchActions();
-
         });
     }
 
@@ -106,7 +106,7 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function form()
     {
-        return Admin::form(ViewThreeAwardRecord::class, function (Form $form) {
+        return Admin::form(ThreeTotalRecord::class, function (Form $form) {
 
             $form->display('id', 'ID');
 
