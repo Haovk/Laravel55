@@ -91,7 +91,7 @@ class ThreeTotalRecordController extends Controller
             $grid->totol_bet_gold('押注总金额');
             $grid->totol_award_num('中奖总人数');
             $grid->totol_award_gold('中奖总金额');
-            $grid->award_date('开奖日期');
+            $grid->award_date('开奖时间');
 
             $grid->disableActions();
             $grid->disableCreation();
