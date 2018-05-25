@@ -84,12 +84,12 @@ class ViewThreeAwardRankController extends Controller
             $grid->sessioncount('开奖次数');      
             $grid->tsessioncount('总开奖次数');   
             $grid->awardratio('牌型开奖率(%)')->display(function(){
-                return $this->tsessioncount==0?0:$this->sessioncount/$this->tsessioncount;
+                return $this->tsessioncount==0?0:$this->sessioncount/$this->tsessioncount*100;
             });     
             $grid->threebetgoldsum('押注总金额');   
             $grid->threeawardgoldsum('中奖总金额');   
             $grid->avgthreeawardgoldsum('平均押注回报率(%)')->display(function(){
-                return $this->threebetgoldsum==0?0:$this->threeawardgoldsum/$this->threebetgoldsum;
+                return $this->threebetgoldsum==0?0:$this->threeawardgoldsum/$this->threebetgoldsum*100;
             });
             $grid->threeawardcount('总中奖数');   
 
