@@ -82,7 +82,7 @@ class ViewTotalUserActivityController extends Controller
             $grid->RegisterCount('注册数');
             //$grid->D2LoginCount('次日留存用户数');
             $grid->D2LoginRatio('次日留存率(%)')->display(function(){
-                return $this->RegisterCount==0?0:$this->D2LoginCount/$this->RegisterCount;
+                return $this->RegisterCount==0?0:$this->D2LoginCount/$this->RegisterCount*100;
             });
             $grid->D1PlayGameCount('周活跃用户数');
             $grid->D1_7PlayGameCount('活跃1天比率(%)');

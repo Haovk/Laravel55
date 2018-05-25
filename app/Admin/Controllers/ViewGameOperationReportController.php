@@ -82,7 +82,7 @@ class ViewGameOperationReportController extends Controller
             $grid->RegisterCount('注册数量');
             #$grid->D2LoginCount('次日留存用户数');
             $grid->D2LoginRatio('次日留存率(%)')->display(function(){
-                return $this->RegisterCount==0?0:$this->D2LoginCount/$this->RegisterCount;
+                return $this->RegisterCount==0?0:$this->D2LoginCount/$this->RegisterCount*100;
             });
             $grid->D1PlayGameCount('活跃用户数量');
             $grid->D1_7LoginDieRatio('前1天流失率(%)');

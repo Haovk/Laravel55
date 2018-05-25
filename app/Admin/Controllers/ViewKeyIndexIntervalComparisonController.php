@@ -90,7 +90,7 @@ class ViewKeyIndexIntervalComparisonController extends Controller
             $grid->Consume_stl('消费渗透率');
             //$grid->D2LoginCount('次日留存率(%)');
             $grid->D2LoginRatio('次日留存率(%)')->display(function(){
-                return $this->RegisterCount==0?0:$this->D2LoginCount/$this->RegisterCount;
+                return $this->RegisterCount==0?0:$this->D2LoginCount/$this->RegisterCount*100;
             });
             $grid->TRegisterCount('有效注册用户数');
             $grid->TRegisterLoginCount('有效留存用户数');
