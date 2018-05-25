@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\ViewThreeAwardRecord;
+use App\Models\ViewMonthlyChannelIndexAnalysis;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ViewThreeAwardRecordController extends Controller
+class ViewMonthlyChannelIndexAnalysisController extends Controller
 {
     use ModelForm;
 
@@ -24,7 +24,7 @@ class ViewThreeAwardRecordController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
+            $content->header('总况 / 各渠道自然月分析');
             $content->description('description');
 
             $content->body($this->grid());
@@ -71,31 +71,22 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(ViewThreeAwardRecord::class, function (Grid $grid) {
-
-            $grid->id('ID');
-            $grid->nick_name('玩家昵称');
-            $grid->session_id('期数');
-            $grid->award_pattern('牌型')->display(
-                function($award_pattern){
-                    switch ($award_pattern) {
-                        case 1:return '单牌';break;
-                        case 2:return '对子';break;
-                        case 3:return '顺子';break;
-                        case 4:return '金花';break;
-                        case 5:return '顺金';break;
-                        case 6:return '豹子';break;
-                        case 7:return '特殊';break;
-                        case 8:return 'AAA';break;
-                    }
-                })->label(); 
-            $grid->award_gold('中奖金额');
-            $grid->award_date('中奖时间')->sortable();
+        return Admin::grid(ViewMonthlyChannelIndexAnalysis::class, function (Grid $grid) {
+            $grid->StatisticsDate('统计日期')->sortable();
+            $grid->ChannelId('渠道编号');
+            $grid->channel_name('渠道名称');
+            $grid->D1PlayGameCount('活跃用户数量');
+            $grid->RegisterCount('注册数量');
+            $grid->FirstPayUserCount('新增首次充值用户数');
+            $grid->PayUserCount('充值用户数');
+            $grid->PayMoenySum('总充值金额');
+            $grid->FirstConsumeUserCount('新增首次消费用户数');
+            $grid->ConsumeUserCount('消费用户数');
+            $grid->ConsumeMoneySum('消费金额');
 
             $grid->disableActions();
             $grid->disableCreation();
             $grid->tools->disableBatchActions();
-
         });
     }
 
@@ -106,7 +97,7 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function form()
     {
-        return Admin::form(ViewThreeAwardRecord::class, function (Form $form) {
+        return Admin::form(ViewMonthlyChannelIndexAnalysis::class, function (Form $form) {
 
             $form->display('id', 'ID');
 

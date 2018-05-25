@@ -18,4 +18,12 @@ Route::group([
     $router->resource('ViewThreeTotal', ViewThreeTotalController::class);
     $router->resource('ViewThreeBetRecore', ViewThreeBetRecoreController::class);
     $router->resource('ThreeTotalRecord', ThreeTotalRecordController::class);
+    $router->resource('ViewGameOperationReport', ViewGameOperationReportController::class);
+    $router->resource('ViewTotalUserActivity', ViewTotalUserActivityController::class);
+    $router->resource('ViewTotalUserPayment', ViewTotalUserPaymentController::class);
+    $router->resource('ViewTotalChannelUsersActivity', ViewTotalChannelUsersActivityController::class);
+    $router->resource('ViewMonthlyIndexAnalysis', ViewMonthlyIndexAnalysisController::class);
+    $router->resource('ViewMonthlyChannelIndexAnalysis', ViewMonthlyChannelIndexAnalysisController::class);
+    $router->resource('ViewKeyIndexIntervalComparison', ViewKeyIndexIntervalComparisonController::class);
+    $router->resource('ViewThreeAwardRank', ViewThreeAwardRankController::class);
 });

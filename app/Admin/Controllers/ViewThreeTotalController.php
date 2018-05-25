@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\ViewThreeTotal;
+use App\Models\ViewThreeTotal;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;

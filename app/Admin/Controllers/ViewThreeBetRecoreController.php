@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\ViewThreeBetRecore;
+use App\Models\ViewThreeBetRecore;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;

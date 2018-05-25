@@ -25,11 +25,11 @@ Route::get('/log', function (Request $request) {
     return Log::find($request->id);
 });
 
-Route::get('getconfig/{id}', function ($id) {
+Route::get('getwebconfig/{id}', function ($id) {
     return WebConfig::find($id)->Content;
 });
 
-Route::get('getconfig', function (Request $request) {
+Route::get('getwebconfig', function (Request $request) {
     //return new WebConfigResource(WebConfig::find($request->id));
     return WebConfig::find($request->id)->Content;
 });

@@ -2,8 +2,9 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\ViewThreeAwardRecord;
+use App\Models\ViewTotalUserActivity;
 
+use Illuminate\Support\Facades\DB;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -11,7 +12,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ViewThreeAwardRecordController extends Controller
+class ViewTotalUserActivityController extends Controller
 {
     use ModelForm;
 
@@ -24,8 +25,12 @@ class ViewThreeAwardRecordController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
+            $content->header('总况 / 用户活跃总况');
             $content->description('description');
+
+            $content->row('周活跃用户数:统计日期最近7天登录过游戏进行对局的用户数');
+            $content->row('活跃1天比率(%):统计日期最近7天里只有1天登录过游戏进行对局的用户数/周活跃用户数');
+            $content->row('活跃7天比率(%):统计日期最近7天里都有登录过游戏进行对局的用户数/周活跃用户数');
 
             $content->body($this->grid());
         });
@@ -43,6 +48,7 @@ class ViewThreeAwardRecordController extends Controller
 
             $content->header('header');
             $content->description('description');
+
 
             $content->body($this->form()->edit($id));
         });
@@ -71,31 +77,24 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(ViewThreeAwardRecord::class, function (Grid $grid) {
-
-            $grid->id('ID');
-            $grid->nick_name('玩家昵称');
-            $grid->session_id('期数');
-            $grid->award_pattern('牌型')->display(
-                function($award_pattern){
-                    switch ($award_pattern) {
-                        case 1:return '单牌';break;
-                        case 2:return '对子';break;
-                        case 3:return '顺子';break;
-                        case 4:return '金花';break;
-                        case 5:return '顺金';break;
-                        case 6:return '豹子';break;
-                        case 7:return '特殊';break;
-                        case 8:return 'AAA';break;
-                    }
-                })->label(); 
-            $grid->award_gold('中奖金额');
-            $grid->award_date('中奖时间')->sortable();
+        return Admin::grid(ViewTotalUserActivity::class, function (Grid $grid) {
+            $grid->StatisticsDate('统计日期')->sortable();
+            $grid->RegisterCount('注册数');
+            //$grid->D2LoginCount('次日留存用户数');
+            $grid->D2LoginRatio('次日留存率(%)')->display(function(){
+                return $this->RegisterCount==0?0:$this->D2LoginCount/$this->RegisterCount;
+            });
+            $grid->D1PlayGameCount('周活跃用户数');
+            $grid->D1_7PlayGameCount('活跃1天比率(%)');
+            $grid->D1_7_in_1_PlayGameRatio('活跃7天比率(%)');
+            $grid->D1_7_in_7_PlayGameRatio('活跃用户数');
+            $grid->D_Old7RegisterCount('前1周(不含当天)注册用户数');
+            $grid->D_Old30RegisterCount('前1月(不含前1周)注册用户数');
+            $grid->D_OldAllRegisterCount('历史(不含前1月)注册用户数');
 
             $grid->disableActions();
             $grid->disableCreation();
             $grid->tools->disableBatchActions();
-
         });
     }
 
@@ -106,7 +105,7 @@ class ViewThreeAwardRecordController extends Controller
      */
     protected function form()
     {
-        return Admin::form(ViewThreeAwardRecord::class, function (Form $form) {
+        return Admin::form(ViewTotalUserActivity::class, function (Form $form) {
 
             $form->display('id', 'ID');
 

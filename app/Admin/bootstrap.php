@@ -17,11 +17,9 @@
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
-
 use Encore\Admin\Grid\Column;
 
 Encore\Admin\Form::forget(['map', 'editor']);
-
 Column::extend('color', function ($value, $color) {
     return "<span style='color: $color'>$value</span>";
 });
