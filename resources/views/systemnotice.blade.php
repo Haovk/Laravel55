@@ -31,10 +31,7 @@
 
 body {
     width: 100%;
-  display: table-cell;
-  height: 100%;
-  
-  font-family:FZY3JW_0;
+    height: 100%;
 }
 @font-face { 
     font-family: FZY3JW_0; /*这里是说明调用来的字体名字*/ 
@@ -42,7 +39,10 @@ body {
 } 
     .mycontent{
         width: 100%;
-        height:100%;
+        display: table-cell;
+        height: 100%;
+  
+        font-family:FZY3JW_0;
         background: -webkit-linear-gradient(rgba(46,80,142,1), rgba(29,54,102,1)); /* Safari 5.1 - 6.0 */
         background: -o-linear-gradient(rgba(46,80,142,1), rgba(29,54,102,1)); /* Opera 11.1 - 12.0 */
         background: -moz-linear-gradient(rgba(46,80,142,1), rgba(29,54,102,1)); /* Firefox 3.6 - 15 */
