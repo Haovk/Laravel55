@@ -116,7 +116,7 @@ body {
         <img class="imgbtn" src="{{ admin_asset('/content/images/tupdatebtn.png') }}" alt="">
     </div>
     <div class="right">
-        <div class="bgrtop"><span>公告名字</span></div>
+        <div class="bgrtop"><span>活动名称</span></div>
         <div class="bgrcontent"><div class="bgrcontent2"><span>公告名字公告名字公告名字公告名字公告名字公告名字公告名字公告名字公告名字公告名字公告名字公告名字</span></div></div>
     </div>
 </div>

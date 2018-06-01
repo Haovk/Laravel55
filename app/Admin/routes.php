@@ -26,4 +26,6 @@ Route::group([
     $router->resource('ViewMonthlyChannelIndexAnalysis', ViewMonthlyChannelIndexAnalysisController::class);
     $router->resource('ViewKeyIndexIntervalComparison', ViewKeyIndexIntervalComparisonController::class);
     $router->resource('ViewThreeAwardRank', ViewThreeAwardRankController::class);
+    $router->get('userinfo/{id}/EditGold', 'UserInfoController@EditGold');
+    $router->post('userinfo/updategold','UserInfoController@updategold');
 });
