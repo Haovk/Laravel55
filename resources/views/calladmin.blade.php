@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>联系客服</title>
+    <style>
+  body{
+    background: -webkit-linear-gradient(rgba(204，230,252,1), rgba(136,180,225,1)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(rgba(204，230,252,1), rgba(136,180,225,1)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(rgba(204，230,252,1), rgba(136,180,225,1)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(rgba(204，230,252,1), rgba(136,180,225,1)); /* 标准的语法（必须放在最后） */
+  }
+  </style>
   </head>
   <body>
     <div class="container">
