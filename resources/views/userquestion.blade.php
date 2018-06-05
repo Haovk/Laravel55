@@ -14,6 +14,12 @@
     <script src="{{ admin_asset("/vendor/laravel-admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}} "></script>
   </head>
   <style>
+  html {
+    width: 100%;
+  height: 100%;
+  display: table;
+ 
+}
   body{
     background: -webkit-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Opera 11.1 - 12.0 */
