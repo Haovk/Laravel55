@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>游戏规则</title>
+    <style>
+    html{
+      background-color:transparent;
+    }
+    body{
+      background-color:transparent;
+    }
+    </style>
   </head>
   <body>
     <div class="container" style="max-width:100%;padding-right: 0px;   padding-left: 0px;">
