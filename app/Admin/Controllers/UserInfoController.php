@@ -177,7 +177,7 @@ class UserInfoController extends Controller
         $goldlog->status=$array['Status'];
         $goldlog->completetime=date("Y-m-d h:i:s"); 
         $goldlog->save();
-
+        fclose($socket);
         $msg=[];
         $msg['status']=$array['Status'];
         $msg['message']=$this->StatusMessage($array['Status']);
