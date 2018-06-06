@@ -9,12 +9,9 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>游戏规则</title>
-    <style>
-    
-  </style>
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="max-width:100%;padding-right: 0px;   padding-left: 0px;">
         <div class="jumbotron">
             <h1 class="display-4">游戏规则</h1>
             <p class="lead">本游戏沿袭民间纸牌游戏“炸金花”经典玩法。游戏房间内到达2人及以上即可开始游戏，每个玩完拥有三张牌，可选择看牌、加注、跟注、弃牌、比牌、全压等方式继续游戏，最终以三张牌面最大者获胜（牌面大小规则见下面部分）。
