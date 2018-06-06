@@ -152,12 +152,12 @@ class UserInfoController extends Controller
         $goldlog->createtime=date("Y-m-d h:i:s");
         $goldlog->save();
 
-        $socket = stream_socket_client(config('app.game_host').':'.config('app.game_port'), $errno, $errmsg,1000);
+        $socket = stream_socket_client('tcp://'.config('app.game_host').':'.config('app.game_port'), $errno, $errmsg);
         $Req = pack("III",$request->userid,$request->gold>0?1:2,abs($request->gold));
         $len = strlen($Req);
         $packet_head = pack("SCSSIa*",$len ,1 , MSG_REQ_HTTP_ADD_USER_GOLD ,0 ,0, $Req );
         fwrite($socket,$packet_head);
-        $readdate=fread($socket,10000);
+        $readdate=fread($socket,2048);
         $array = unpack("S1len/c1ver/S1msg/C1key/C1flag/I1seq/I1Status", $readdate);
         $len = $array ['len'] ;
         $key = $array ['key'] ;

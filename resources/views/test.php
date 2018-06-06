@@ -41,7 +41,7 @@ define	('MSG_REQ_HTTP_ADD_USER_GOLD',0x8020);
 // Worker::runAll();
     
 // //require_once __DIR__ . '/Workerman/Autoloader.php';
-$socket = stream_socket_client('101.132.158.239:9001', $errno, $errmsg,1000);
+$socket = stream_socket_client('tcp://101.132.158.239:9001', $errno, $errmsg);
 echo "1";
 $Req = pack("III",1,1,1000);
 $len = strlen($Req) ;
@@ -114,7 +114,8 @@ echo $strobj;
 $objj=array();
 $objj=json_decode($strobj);
 echo json_encode($objj);
-fclose($socket);
+//fclose($socket);
+socket_close($socket);
 $a = pack('A*','我');$b = unpack('A*test',$a); 
 echo json_encode($b);
 // echo $objj->stauts;
