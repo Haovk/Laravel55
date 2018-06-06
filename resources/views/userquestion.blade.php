@@ -21,6 +21,9 @@
  
 }
   body{
+    width: 100%;
+    height: 100%;
+    display: table-cell;
     background: -webkit-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Opera 11.1 - 12.0 */
     background: -moz-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Firefox 3.6 - 15 */
@@ -61,7 +64,7 @@
                 <label for="formGroupExampleInput2">反馈内容</label>
                 <textarea class="form-control" rows="3" name="content" placeholder="反馈内容">{{ old('content') }}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="submit" class="btn btn-primary pull-right" style="width:30%;">提交</button>
         </form>
     </div>
     
