@@ -41,7 +41,7 @@ define	('MSG_REQ_HTTP_ADD_USER_GOLD',0x8020);
 // Worker::runAll();
     
 // //require_once __DIR__ . '/Workerman/Autoloader.php';
-$socket = stream_socket_client('192.168.2.27:9001', $errno, $errmsg,1000);
+$socket = stream_socket_client('101.132.158.239:9001', $errno, $errmsg,1000);
 echo "1";
 $Req = pack("III",1,1,1000);
 $len = strlen($Req) ;
@@ -66,8 +66,8 @@ $vvva=fread($socket,10000);
 $packet_head= '';
 
 $packet_body="";
-$myfile=fopen("testfile.txt", "w");
-fwrite($myfile, $vvva);
+//$myfile=fopen("testfile.txt", "w");
+//fwrite($myfile, $vvva);
 //echo $vvva;
 //if (recv_len( $socket,HEAD_LEN,$packet_head) > 0 )
 {
