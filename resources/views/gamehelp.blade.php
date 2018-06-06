@@ -19,7 +19,7 @@
     </style>
   </head>
   <body>
-    <div class="container" style="max-width:100%;padding-right: 0px;   padding-left: 0px;">
+    <div class="container" style="padding-right: 0px;   padding-left: 0px;">
         <div class="jumbotron">
             <h1>游戏规则</h1>
             <p class="lead">本游戏沿袭民间纸牌游戏“炸金花”经典玩法。游戏房间内到达2人及以上即可开始游戏，每个玩完拥有三张牌，可选择看牌、加注、跟注、弃牌、比牌、全压等方式继续游戏，最终以三张牌面最大者获胜（牌面大小规则见下面部分）。
