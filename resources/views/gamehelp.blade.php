@@ -10,18 +10,7 @@
 
     <title>游戏规则</title>
     <style>
-    html {
-    width: 100%;
-  height: 100%;
-  display: table;
- 
-}
-  body{
-    background: -webkit-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* Firefox 3.6 - 15 */
-    background: linear-gradient(rgba(204,230,252,1), rgba(136,180,225,1)); /* 标准的语法（必须放在最后） */
-  }
+    
   </style>
   </head>
   <body>
