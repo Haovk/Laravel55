@@ -42,6 +42,7 @@ $('.grid-check-row').on('click', function () {
                     dataType: "json",
                     data: { userid:userid,gold:inputValue,_token:LA.token  },
                     success: function (data) {
+                        $.pjax.reload('#pjax-container');
                         if (data.status==200) {
                             swal(data.message, '', 'success');
                         } else {

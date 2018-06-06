@@ -114,7 +114,7 @@ echo $strobj;
 $objj=array();
 $objj=json_decode($strobj);
 echo json_encode($objj);
-
+fclose($socket);
 $a = pack('A*','我');$b = unpack('A*test',$a); 
 echo json_encode($b);
 // echo $objj->stauts;
