@@ -6,7 +6,7 @@ define	('MSG_REQ_ROOM_LIST' ,	0x15);
 define	('MSG_REQ_HTTP_ADD_USER_GOLD',0x8020);
 use App\Models\user_info;
 use App\Models\HandleGoldLog;
-use App\Admin\Extensions\UserInfoBtn;
+use App\Admin\Extensions\UserInfoGoldBtn;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
