@@ -66,7 +66,7 @@ SCRIPT;
     {
         Admin::script($this->script());
 
-        return "<a class='fa fa-money grid-check-row' data-id='{$this->id}'></a>";
+        return "<a class='btn btn-sm btn-facebook grid-check-row' data-id='{$this->id}'><i class='fa fa-money'></i>赠送</a>";
     }
 
     public function __toString()

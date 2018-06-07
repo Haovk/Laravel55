@@ -68,7 +68,6 @@ $packet_head= '';
 $packet_body="";
 //$myfile=fopen("testfile.txt", "w");
 //fwrite($myfile, $vvva);
-//echo $vvva;
 //if (recv_len( $socket,HEAD_LEN,$packet_head) > 0 )
 {
 					$array = unpack("S1len/c1ver/S1msg/C1key/C1flag/I1seq/I1Status/c*str", $vvva);
@@ -115,7 +114,7 @@ $objj=array();
 $objj=json_decode($strobj);
 echo json_encode($objj);
 //fclose($socket);
-socket_close($socket);
+fclose($socket);
 $a = pack('A*','我');$b = unpack('A*test',$a); 
 echo json_encode($b);
 // echo $objj->stauts;
