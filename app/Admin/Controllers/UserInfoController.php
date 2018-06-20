@@ -82,7 +82,18 @@ class UserInfoController extends Controller
 
             $grid->user_id('ID')->sortable();
             $grid->user_name('用户名称');
+            $grid->nick_name('用户昵称');
             $grid->gold('金币');
+            $grid->last_login_date('最后登录日期');
+            $grid->register_date('注册日期');
+            $grid->filter(function($filter){
+
+                // 去掉默认的id过滤器
+                $filter->disableIdFilter();
+            
+                // 在这里添加字段过滤器
+                $filter->equal('user_id', '用户编号')->inputmask($options = [], $icon = 'android');
+            });
 
             $grid->actions(function (Grid\Displayers\Actions $actions) {
                 $actions->disableDelete();

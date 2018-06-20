@@ -41,9 +41,9 @@ define	('MSG_REQ_HTTP_ADD_USER_GOLD',0x8020);
 // Worker::runAll();
     
 // //require_once __DIR__ . '/Workerman/Autoloader.php';
-$socket = stream_socket_client('tcp://101.132.158.239:9001', $errno, $errmsg);
+$socket = stream_socket_client('tcp://192.168.2.27:9001', $errno, $errmsg);
 echo "1";
-$Req = pack("III",1,1,1000);
+$Req = pack("III",3,1,1000);
 $len = strlen($Req) ;
                 /*
                     WORD		len;			//数据长度
