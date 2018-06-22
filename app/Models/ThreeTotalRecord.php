@@ -17,7 +17,4 @@ class ThreeTotalRecord extends Model
         'award_pattern','totol_bet_num','totol_bet_gold','totol_award_num','totol_award_gold','award_date',
     ];
 
-    
-
-
 }
