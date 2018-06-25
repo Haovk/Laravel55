@@ -45,7 +45,7 @@ Route::group([
     $router->resource('Views/ChannelUserPayAnalysis', Views\ChannelUserPayAnalysisController::class);
     $router->resource('Views/ChannelUserConsumeAnalysis', Views\ChannelUserConsumeAnalysisController::class);
     $router->resource('Views/ChannelUserBalanceAnalysis', Views\ChannelUserBalanceAnalysisController::class);
-    $router->resource('Views/ChannelUserPayConsumeBalanceAnalysis', Views\ChannelUserPayConsumeBalanceAnalysisController::class);
+    $router->resource('Views/ChannelUserPCBAnalysis', Views\ChannelUserPCBAnalysisController::class);
     $router->get('userinfo/{id}/EditGold', 'UserInfoController@EditGold');
     $router->post('userinfo/updategold','UserInfoController@updategold');
 });
