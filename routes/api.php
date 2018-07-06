@@ -53,10 +53,10 @@ Route::post('uploadHead', function (Request $request) {
     $file = $request->file('picture');
     if ($file->isValid()) {
         //获取文件的扩展名 
-        $ext = $fileCharater->getClientOriginalExtension();
+        $ext = $file->getClientOriginalExtension();
 
         //获取文件的绝对路径
-        $path = $fileCharater->getRealPath();
+        $path = $file->getRealPath();
 
         //定义文件名
         $filename = 'touxiang'.date('Y-m-d-h-i-s').'.'.$ext;
