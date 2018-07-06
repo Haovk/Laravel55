@@ -59,10 +59,10 @@ Route::post('uploadHead', function (Request $request) {
         $path = $file->getRealPath();
 
         //定义文件名
-        $filename = 'touxiang'.date('Y-m-d-h-i-s').'.'.$ext;
+        $filename = 'mytouxiang'.date('Y-m-d-h-i-s').'.'.$ext;
         //存储文件。disk里面的public。总的来说，就是调用disk模块里的public配置
-        Storage::disk('touxiang')->put($filename, file_get_contents($path));
-        $url = Storage::disk('touxiang')->url($filename);
+        Storage::disk('mytouxiang')->put($filename, file_get_contents($path));
+        $url = Storage::disk('mytouxiang')->url($filename);
         $msgArr=['Status'=>20000,'Url'=>$url,'Message'=>'上传成功'];
     }
     return json_encode($msgArr);

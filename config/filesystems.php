@@ -70,10 +70,10 @@ return [
             'visibility' => 'public',
         ],
 
-        'touxiang' => [
+        'mytouxiang' => [
             'driver' => 'local',
-            'root' => public_path('storage/touxiang'),
-            'url' => env('APP_URL').'/storage/touxiang',
+            'root' => public_path('storage/mytouxiang'),
+            'url' => env('APP_URL').'/storage/mytouxiang',
             'visibility' => 'public',
         ],
     ],
