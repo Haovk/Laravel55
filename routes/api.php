@@ -5,6 +5,7 @@ use App\Models\Log;
 use App\Models\WebConfig;
 use App\Http\Resources\LogResource;
 use App\Http\Resources\WebConfigResource;
+use Illuminate\Support\Facades\Storage;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -45,4 +46,24 @@ Route::get('parameters', function (Request $request) {
 Route::post('weixinpay', function (Request $request) {
     
     return $request->all();
+});
+
+Route::post('uploadHead', function (Request $request) {
+    $msgArr=['Status'=>20001,'Url'=>'','Message'=>'上传失败'];
+    $file = $request->file('picture');
+    if ($file->isValid()) {
+        //获取文件的扩展名 
+        $ext = $fileCharater->getClientOriginalExtension();
+
+        //获取文件的绝对路径
+        $path = $fileCharater->getRealPath();
+
+        //定义文件名
+        $filename = 'touxiang'.date('Y-m-d-h-i-s').'.'.$ext;
+        //存储文件。disk里面的public。总的来说，就是调用disk模块里的public配置
+        Storage::disk('touxiang')->put($filename, file_get_contents($path));
+        $url = Storage::disk('touxiang')->url($filename);
+        $msgArr=['Status'=>20000,'Url'=>$url,'Message'=>'上传成功'];
+    }
+    return json_encode($msgArr);
 });

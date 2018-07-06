@@ -70,6 +70,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'touxiang' => [
+            'driver' => 'local',
+            'root' => public_path('storage/touxiang'),
+            'url' => env('APP_URL').'/storage/touxiang',
+            'visibility' => 'public',
+        ],
     ],
 
 ];
