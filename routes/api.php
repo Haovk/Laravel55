@@ -49,6 +49,7 @@ Route::post('weixinpay', function (Request $request) {
 });
 
 Route::post('uploadHead', function (Request $request) {
+    \Log::info(json_encode($request));
     $msgArr=['Status'=>20001,'Url'=>'','Message'=>'上传失败'];
     $file = $request->file('picture');
     if ($file->isValid()) {
