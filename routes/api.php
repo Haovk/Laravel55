@@ -49,10 +49,8 @@ Route::post('weixinpay', function (Request $request) {
 });
 
 Route::post('uploadHead', function (Request $request) {
-    \Log::info(json_encode($request->files));
     $msgArr=['Status'=>20001,'Url'=>'','Message'=>'上传失败'];
     $file = $request->file('picture');
-    \Log::info(json_encode($file));
     try {
         if ($file->isValid()) {
             //获取文件的扩展名
@@ -67,7 +65,7 @@ Route::post('uploadHead', function (Request $request) {
             Storage::disk('mytouxiang')->put($filename, file_get_contents($path));
             $url = Storage::disk('mytouxiang')->url($filename);
             $msgArr=['Status'=>20000,'Url'=>$url,'Message'=>'上传成功'];
-        }        
+        }
         return json_encode($msgArr);
     }
     catch(Exception $exc)
