@@ -73,7 +73,7 @@ return [
         'mytouxiang' => [
             'driver' => 'local',
             'root' => public_path('storage/mytouxiang'),
-            'url' => env('APP_URL').'/storage/mytouxiang',
+            'url' => env('APP_URLNOS').'/storage/mytouxiang',
             'visibility' => 'public',
         ],
     ],

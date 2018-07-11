@@ -60,7 +60,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
+    'touxiangurl'=>env('APP_URLNOS','http://localhost'),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
