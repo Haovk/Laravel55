@@ -17,6 +17,7 @@ use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Widgets\Box;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserInfoController extends Controller
 {
@@ -155,6 +156,8 @@ class UserInfoController extends Controller
 
     protected function updategold(Request $request)
     {
+        $userid = Auth::id();
+        \Log::info($userid);
         $goldlog=new HandleGoldLog;
         $goldlog->userid=$request->userid;
         $goldlog->gold=abs($request->gold);
