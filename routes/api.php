@@ -49,9 +49,10 @@ Route::post('weixinpay', function (Request $request) {
 });
 
 Route::post('uploadHead', function (Request $request) {
-    \Log::info(json_encode($request));
+    \Log::info(json_encode($request->files));
     $msgArr=['Status'=>20001,'Url'=>'','Message'=>'上传失败'];
     $file = $request->file('picture');
+    \Log::info(json_encode($file));
     if ($file->isValid()) {
         //获取文件的扩展名 
         $ext = $file->getClientOriginalExtension();
