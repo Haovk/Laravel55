@@ -6,6 +6,7 @@ define	('MSG_REQ_ROOM_LIST' ,	0x15);
 define	('MSG_REQ_HTTP_ADD_USER_GOLD',0x8020);
 use App\Models\user_info;
 use App\Models\HandleGoldLog;
+use App\Models\AdminUserExtend;
 use App\Admin\Extensions\UserInfoGoldBtn;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -156,8 +157,18 @@ class UserInfoController extends Controller
 
     protected function updategold(Request $request)
     {
-        $userid = Auth::id();
-        \Log::info($userid);
+        $msg=['status'=>20001,'message'=>'未知错误'];
+        $userextend = AdminUserExtend::where('AdminUserId',Admin::user()->id)->first();
+        if(!$userextend)
+        {
+            $msg=['status'=>20002,'message'=>'权限不足'];
+            return json_encode($msg);
+        }
+        if($userextend->Gold<abs($request->gold))
+        {
+            $msg=['status'=>20003,'message'=>'可操作金币不足'];
+            return json_encode($msg);
+        }
         $goldlog=new HandleGoldLog;
         $goldlog->userid=$request->userid;
         $goldlog->gold=abs($request->gold);
@@ -165,7 +176,8 @@ class UserInfoController extends Controller
         $goldlog->status=0;
         $goldlog->createtime=date("Y-m-d h:i:s");
         $goldlog->save();
-
+        $userextend->Gold-=abs($request->gold);
+        $userextend->save();
         $socket = stream_socket_client('tcp://'.config('app.game_host').':'.config('app.game_port'), $errno, $errmsg);
         $Req = pack("III",$request->userid,$request->gold>0?1:2,abs($request->gold));
         $len = strlen($Req);

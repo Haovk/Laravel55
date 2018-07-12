@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WebConfig extends Model
+class AdminUserExtend extends Model
 {
-    protected $table='WebConfig';
+    protected $table='admin_users_extend';
     protected $primaryKey = 'Id';
     public $timestamps = false;
     /**
@@ -15,7 +15,7 @@ class WebConfig extends Model
      * @var array
      */
     protected $fillable = [
-        'Title','Content',
+        'AdminUserId','GoldSetting','Gold',
     ];
 
 }

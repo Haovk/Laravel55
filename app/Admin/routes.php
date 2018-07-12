@@ -13,6 +13,7 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('users', UserController::class);
     $router->resource('log', LogController::class);
+    $router->resource('adminuserextend', AdminUserExtendController::class);
     $router->resource('userinfo', UserInfoController::class);    
     $router->resource('ThreeTotalRecord', ThreeTotalRecordController::class);
     $router->resource('Views/ThreeAwardRecord', Views\ThreeAwardRecordController::class);
