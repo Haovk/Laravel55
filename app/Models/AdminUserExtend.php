@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AdminUserExtend extends Model
 {
     protected $table='admin_users_extend';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'AdminUserId';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -15,7 +15,11 @@ class AdminUserExtend extends Model
      * @var array
      */
     protected $fillable = [
-        'AdminUserId','GoldSetting','Gold',
+        'GoldSetting','Gold',
     ];
 
+    public function adminuser()
+    {
+        return $this->belongsTo(Administrator::class,'AdminUserId');
+    }
 }

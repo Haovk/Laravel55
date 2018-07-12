@@ -19,6 +19,7 @@ use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Widgets\Box;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Administrator;
 
 class UserInfoController extends Controller
 {
@@ -158,16 +159,19 @@ class UserInfoController extends Controller
     protected function updategold(Request $request)
     {
         $msg=['status'=>20001,'message'=>'未知错误'];
-        $userextend = AdminUserExtend::where('AdminUserId',Admin::user()->id)->first();
-        if(!$userextend)
-        {
-            $msg=['status'=>20002,'message'=>'权限不足'];
-            return json_encode($msg);
-        }
-        if($userextend->Gold<abs($request->gold))
-        {
-            $msg=['status'=>20003,'message'=>'可操作金币不足'];
-            return json_encode($msg);
+        //不是超级管理员进行金额以及权限判断
+        if (!Admin::user()->isAdministrator()) {
+            $userextend = Admin::user()->adminuserextend;
+            if (!$userextend) {
+                $msg=['status'=>20002,'message'=>'权限不足'];
+                return json_encode($msg);
+            }
+            if ($userextend->Gold<abs($request->gold)) {
+                $msg=['status'=>20003,'message'=>'可操作金币不足'];
+                return json_encode($msg);
+            }
+            $userextend->Gold-=abs($request->gold);
+            $userextend->save();
         }
         $goldlog=new HandleGoldLog;
         $goldlog->userid=$request->userid;
@@ -175,9 +179,7 @@ class UserInfoController extends Controller
         $goldlog->handletype=$request->gold>0?1:2;
         $goldlog->status=0;
         $goldlog->createtime=date("Y-m-d h:i:s");
-        $goldlog->save();
-        $userextend->Gold-=abs($request->gold);
-        $userextend->save();
+        $goldlog->save();        
         $socket = stream_socket_client('tcp://'.config('app.game_host').':'.config('app.game_port'), $errno, $errmsg);
         $Req = pack("III",$request->userid,$request->gold>0?1:2,abs($request->gold));
         $len = strlen($Req);

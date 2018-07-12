@@ -58,7 +58,7 @@ return [
         'providers' => [
             'admin' => [
                 'driver' => 'eloquent',
-                'model'  => Encore\Admin\Auth\Database\Administrator::class,
+                'model'  => App\Models\Administrator::class,
             ],
         ],
     ],
@@ -86,7 +86,7 @@ return [
 
         // User tables and model.
         'users_table' => 'admin_users',
-        'users_model' => Encore\Admin\Auth\Database\Administrator::class,
+        'users_model' => App\Models\Administrator::class,
 
         // Role table and model.
         'roles_table' => 'admin_roles',
@@ -161,7 +161,7 @@ return [
 
             // If you are not using the default user model as the authentication model, set it up
             'user_retriever' => function ($id) {
-                return \App\Models\User::find($id);
+                return \App\User::find($id);
             },
         ],
         'media-manager' => [
