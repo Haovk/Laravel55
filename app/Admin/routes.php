@@ -15,6 +15,7 @@ Route::group([
     $router->resource('users', UserController::class);
     $router->resource('log', LogController::class);
     $router->resource('userinfo', UserInfoController::class);    
+    $router->resource('webconfig', WebConfigController::class);
     $router->resource('ThreeTotalRecord', ThreeTotalRecordController::class);
     $router->resource('Views/ThreeAwardRecord', Views\ThreeAwardRecordController::class);
     $router->resource('Views/ThreeTotal', Views\ThreeTotalController::class);
