@@ -75,7 +75,9 @@ class WebConfigController extends Controller
 
             $grid->Id('编号')->sortable();
             $grid->Title('标题');
-            $grid->Content('配置内容');
+            $grid->Content('配置内容')->display(function($text) {
+                return str_limit($text, 100, '...');
+            });
         });
     }
 
