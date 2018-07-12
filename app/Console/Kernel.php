@@ -26,6 +26,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->call(function(){
+            $dbh = DB::update('update admin_users_extend set Gold=GoldSetting');
+        })->daily()->description('重置每日的可操作金币数');
     }
 
     /**
