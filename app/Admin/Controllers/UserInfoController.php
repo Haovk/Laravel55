@@ -167,7 +167,7 @@ class UserInfoController extends Controller
                 return json_encode($msg);
             }
             if ($userextend->Gold<abs($request->gold)) {
-                $msg=['status'=>20003,'message'=>'可操作金币不足'];
+                $msg=['status'=>20003,'message'=>'可操作金币不足,剩余'.$userextend->Gold];
                 return json_encode($msg);
             }
             $userextend->Gold-=abs($request->gold);
@@ -179,7 +179,7 @@ class UserInfoController extends Controller
         $goldlog->handletype=$request->gold>0?1:2;
         $goldlog->status=0;
         $goldlog->createtime=date("Y-m-d h:i:s");
-        $goldlog->save();        
+        $goldlog->save();
         $socket = stream_socket_client('tcp://'.config('app.game_host').':'.config('app.game_port'), $errno, $errmsg);
         $Req = pack("III",$request->userid,$request->gold>0?1:2,abs($request->gold));
         $len = strlen($Req);
