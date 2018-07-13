@@ -10,7 +10,7 @@ class ViewThreeTotal extends Model
     protected $primaryKey = '';
     /**
      * The attributes that are mass assignable.
-     *
+     * 时时乐押注/中奖记录
      * @var array
      */
     protected $fillable = [

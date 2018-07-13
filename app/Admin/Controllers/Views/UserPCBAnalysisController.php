@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers\Views;
 
-use App\Models\Views\ViewChannelUserPayConsumeBalanceAnalysis;
+use App\Models\Views\ViewUserPayConsumeBalanceAnalysis;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ChannelUserPayConsumeBalanceAnalysisController extends Controller
+class UserPCBAnalysisController extends Controller
 {
     use ModelForm;
 
@@ -71,11 +71,9 @@ class ChannelUserPayConsumeBalanceAnalysisController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(ViewChannelUserPayConsumeBalanceAnalysis::class, function (Grid $grid) {
+        return Admin::grid(ViewUserPayConsumeBalanceAnalysis::class, function (Grid $grid) {
 
             $grid->StatisticsDate('统计日期')->sortable();
-            $grid->ChannelId('渠道编号');
-            $grid->channel_name('渠道名称');
             $grid->PayUserCount('日充值用户数');
             $grid->PayMoenySum('日充值金额');
             $grid->ConsumeUserCount('日消费用户数');
@@ -96,7 +94,7 @@ class ChannelUserPayConsumeBalanceAnalysisController extends Controller
      */
     protected function form()
     {
-        return Admin::form(ViewChannelUserPayConsumeBalanceAnalysis::class, function (Form $form) {
+        return Admin::form(ViewUserPayConsumeBalanceAnalysis::class, function (Form $form) {
 
             $form->display('id', 'ID');
 

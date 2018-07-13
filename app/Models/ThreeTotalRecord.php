@@ -10,7 +10,7 @@ class ThreeTotalRecord extends Model
     protected $primaryKey = 'session_id';
     /**
      * The attributes that are mass assignable.
-     *
+     * 时时乐开牌记录
      * @var array
      */
     protected $fillable = [
